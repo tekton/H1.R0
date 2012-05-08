@@ -3,16 +3,12 @@ require 'exifr'
 require 'logger'
 
 def find_files(loc)
-	files = Dir.new(loc)
-	Dir.chdir(loc)
-	files.each do |file|
-		case file.downcase
-		when /.jpg\Z/
-			$log.debug "#{file} is a jpg!"
-			exif_data = nil
-			exif_data = EXIFR::JPEG.new(file)
-			exif_loop(exif_data)
-		end
+	case loc.downcase
+	when /.jpg\Z/
+		$log.debug "#{loc} is a jpg!"
+		exif_data = nil
+		exif_data = EXIFR::JPEG.new(loc)
+		exif_loop(exif_data)
 	end
 end
 
@@ -51,7 +47,7 @@ end
 
 t = Time.now()
 $h = Hash.new()
-$log = Logger.new('log')
+$log = Logger.new('single-log.log')
 loc = ARGV.first
 find_files(loc)
 

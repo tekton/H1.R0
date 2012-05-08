@@ -6,14 +6,13 @@ require 'logger'
 def copy_image(img)
 	#name of file
 	name = File.basename(img)
+	new_img = "~/tmp/"+name
 	#open the file location provided by the variable img
 	if File.exist?(img)
 		#copy the file to ~/tmp for testing
-		#File.open("~/tmp/"+name,  "w+") {|f| f.write()}
-		#FileUtils.cp(img, "~/tmp/"+name)		
+		FileUtils.cp(img, File.expand_path("~/tmp"))
 		#add original location as exif data
-		#photo = MiniExiftool.new("~/tmp/"+name)
-		photo = MiniExiftool.new(img)
+		photo = MiniExiftool.new(File.expand_path(new_img))
 		photo["UserComment"] = img
 		photo.save
 		#assuming that worked, return

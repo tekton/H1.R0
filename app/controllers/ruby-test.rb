@@ -2,7 +2,7 @@ require 'rubygems'
 require 'exifr'
 require 'logger'
 
-class EXIFGatherDirectory < ActionController
+class RubyTestEXIFGatherDirectory
 
   def find_files(loc)
   	files = Dir.new(loc)

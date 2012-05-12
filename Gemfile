@@ -7,6 +7,11 @@ gem 'rails', '3.2.3'
 
 gem 'sqlite3'
 
+gem 'execjs'
+gem 'therubyracer'
+
+gem 'exifr'
+gem 'mini_exiftool'
 
 # Gems used only for assets and not required
 # in production environments by default.

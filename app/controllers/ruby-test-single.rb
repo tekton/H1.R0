@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'exifr'
 require 'logger'
-class EXIFGatherFile < ActionController
+class EXIFGatherFile
   def find_files(loc)
   	case loc.downcase
   	when /.jpg\Z/

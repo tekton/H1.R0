@@ -3,7 +3,7 @@ require 'mini_exiftool'
 require 'exifr'
 require 'logger'
 
-class ImageDataManipulate < ActionController
+class ImageDataManipulate
 
   log = Logger.new('idm-log.log')
   loc = ""

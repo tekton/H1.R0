@@ -1,59 +1,63 @@
 require 'rubygems'
 require 'exifr'
 require 'logger'
+class EXIFGatherFile < ActionController
+  def find_files(loc)
+  	case loc.downcase
+  	when /.jpg\Z/
+  		$log.debug "#{loc} is a jpg!"
+  		exif_data = nil
+  		exif_data = EXIFR::JPEG.new(loc)
+  		exif_loop(exif_data)
+  	end
+  end
+  
+  def exif_loop(exif_data)
+  	if exif_data.exif? then
+  		i = exif_data.exif.to_hash
+  		i.each_pair do |key,val|
+  			#puts "#{key} :: #{val}"
+  			#h[key]
+  			if $h.has_key?(key)
+  				$log.debug "#{key} exists!"
+  				if $h[key].has_key?(val)
+  					$h[key][val] += 1
+  				else
+  					$h[key][val] = 1
+  				end
+  			else
+  				$log.debug "Key didn't exit, making new hash of hash"
+  				$h[key] = Hash.new()
+  				$h[key][val] = 1
+  			end
+  		end
+  	else
+  		puts "NO DATA"
+  	end
+  end
+  
+  def i_h(h)
+  	h.each_key do |k|
+  		puts "#{k} ::"
+  			h[k].each_pair do |key,val|
+  				puts "     #{key} :: #{val}"
+  			end
+  	end
+  end
 
-def find_files(loc)
-	case loc.downcase
-	when /.jpg\Z/
-		$log.debug "#{loc} is a jpg!"
-		exif_data = nil
-		exif_data = EXIFR::JPEG.new(loc)
-		exif_loop(exif_data)
-	end
+  def old_function
+    t = Time.now()
+    $h = Hash.new()
+    $log = Logger.new('single-log.log')
+    loc = ARGV.first
+    find_files(loc)
+    
+    $log.debug $h.inspect
+    
+    i_h($h)
+    
+    t = Time.now() - t
+    puts t
+  end
+
 end
-
-def exif_loop(exif_data)
-	if exif_data.exif? then
-		i = exif_data.exif.to_hash
-		i.each_pair do |key,val|
-			#puts "#{key} :: #{val}"
-			#h[key]
-			if $h.has_key?(key)
-				$log.debug "#{key} exists!"
-				if $h[key].has_key?(val)
-					$h[key][val] += 1
-				else
-					$h[key][val] = 1
-				end
-			else
-				$log.debug "Key didn't exit, making new hash of hash"
-				$h[key] = Hash.new()
-				$h[key][val] = 1
-			end
-		end
-	else
-		puts "NO DATA"
-	end
-end
-
-def i_h(h)
-	h.each_key do |k|
-		puts "#{k} ::"
-			h[k].each_pair do |key,val|
-				puts "     #{key} :: #{val}"
-			end
-	end
-end
-
-t = Time.now()
-$h = Hash.new()
-$log = Logger.new('single-log.log')
-loc = ARGV.first
-find_files(loc)
-
-$log.debug $h.inspect
-
-i_h($h)
-
-t = Time.now() - t
-puts t

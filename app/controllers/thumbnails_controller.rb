@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'RMagick'
-include Magick
 
 class ThumbnailsController < ApplicationController
   
@@ -19,9 +18,32 @@ class ThumbnailsController < ApplicationController
     
     loc = File.dirname(__FILE__) + "/../assets/images/thumbnails/"+image
     img.write(loc)
+  end
+  
+  def create_from_folder
+    folder = :test.to_s
+    loc = File.dirname(__FILE__) + "/../assets/images/"+folder
+    files = Dir.new(loc)
+    
+    Dir.chdir(loc)
+    files.each do |file|
+      case file.downcase
+      when /.jpg\Z/
+        create_thumbnail folder, file
+      end
+    end
     
   end
   
-  
+  def create_thumbnail(folder, file)  
+    logger.info "creating thumbnail:: #{folder} / #{file}"
+    loc = File.dirname(__FILE__) + "/../assets/images/"+folder+"/"+file
+    
+    img = Magick::Image.read(loc).first
+    img.resize_to_fit!(200, 133)
+    
+    loc = File.dirname(__FILE__) + "/../assets/images/thumbnails/"+folder+"/"+file
+    img.write(loc)   
+  end
   
 end

@@ -6,7 +6,7 @@
 	<table>
 		<tr>
 		<% @images.each do |image|%>
-	    	<td><%= link_to image_tag(image.location, class: 'browse_top_block_image'), image %></td>
+	    	<td><%= link_to image_tag(asset_path('thumbnails/'+image.location), class: 'browse_top_block_image'), image %></td>
 		<% end %>
 		</tr>
 	</table>

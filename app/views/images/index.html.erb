@@ -14,7 +14,7 @@
 <% @images.each do |image| %>
   <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <td><%= image.id %></td>
-    <td><%= image_tag(image.location, class: 'list_image') %></td>
+    <td><%= image_tag(asset_path('thumbnails/'+image.location), class: 'list_image') %></td>
     <td><%= image.location %></td>
     <td><%= image.name %></td>
     <td><%= link_to 'Show', image %></td>

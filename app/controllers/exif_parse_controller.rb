@@ -25,6 +25,8 @@ class ExifParseController < ApplicationController
         fname = folder+"/"+File.basename(file)
         logger.info fname
         image = Image.where("location = ?",fname).first_or_create!(:location => fname)
+
+        
         if image == nil
           logger.info "Image not in database...yet..."
         else

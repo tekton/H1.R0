@@ -8,7 +8,7 @@ class ExifParseController < ApplicationController
   
   # GET /exif_parse/:test
   def index
-    folder = :test.to_s
+    folder = params[:test]
     loc = File.dirname(__FILE__) + "/../assets/images/"+folder
     find_files loc
   end
@@ -21,7 +21,7 @@ class ExifParseController < ApplicationController
       when /.jpg\Z/
         logger.info "#{file} is a jpg!"
         
-        folder = :test.to_s
+        folder = params[:test]
         fname = folder+"/"+File.basename(file)
         logger.info fname
         image = Image.where("location = ?",fname).first_or_create!(:location => fname)

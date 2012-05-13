@@ -21,7 +21,7 @@ class ThumbnailsController < ApplicationController
   end
   
   def create_from_folder
-    folder = :test.to_s
+    folder = params[:test]
     loc = File.dirname(__FILE__) + "/../assets/images/"+folder
     files = Dir.new(loc)
     
@@ -29,6 +29,7 @@ class ThumbnailsController < ApplicationController
     files.each do |file|
       case file.downcase
       when /.jpg\Z/
+        logger.info "Calling create_thumbnail with #{folder} :: #{file}"
         create_thumbnail folder, file
       end
     end

@@ -3,6 +3,7 @@ H1R0::Application.routes.draw do
 
   match 'exif_parse/:test' => 'exif_parse#index'
   match 'thumbnail/:test' => 'thumbnails#create_from_folder'
+  match 'iptc_parse/:test' => 'iptc_parse#iptc_from_folder'
 
   resources :exif_data
 

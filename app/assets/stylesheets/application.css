@@ -11,7 +11,7 @@
  *= require_self
  *= require_tree .
 */
-body {
+.body {
 	background-color: #222;
 	font-family: sans-serif;
 }
@@ -22,6 +22,7 @@ body {
 	font-size: 200%;
 	font-family: sans-serif;
 	background-color: gray;
+	border-radius: 15px;
 }
 
 #top {

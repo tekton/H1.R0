@@ -4,3 +4,28 @@
 .browse_top_block_image {
 
 }
+
+#quad li { width:25%; }
+#quint li { width:20%; }
+
+ul{
+	width:800px;
+	margin-bottom:20px;
+	overflow:hidden;
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	padding-top: 5px;
+}
+li{
+	line-height:1.5em;
+	float:left;
+	display:inline;
+}
+
+#tags_list {
+
+	border-radius: 15px;
+	background-color: #999;
+	color: black;
+
+}

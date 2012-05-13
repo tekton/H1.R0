@@ -3,11 +3,9 @@
 <%end %>
 
 <div id="top_block">
-	<table>
-		<tr>
+	<ul id="quad">
 		<% @images.each do |image|%>
-	    	<td><%= link_to image_tag(asset_path('thumbnails/'+image.location), class: 'browse_top_block_image'), image %></td>
+	    	<li><%= link_to image_tag(asset_path('thumbnails/'+image.location), class: 'browse_top_block_image'), image %></li>
 		<% end %>
-		</tr>
-	</table>
+	</ul>
 </div>

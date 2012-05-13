@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Image.delete_all
+Image.create(id: 1, name: "Three Boys", location: "test/agee-467.jpg")
+Image.create(id: 2, name: "The Leg", location: "test/agee-482.jpg")

@@ -11,9 +11,9 @@
   </tr>
 
 <% @images.each do |image| %>
-  <tr>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <td><%= image.id %></td>
-    <td><%= image.location %></td>
+    <td><%= image_tag(image.location, class: 'list_image') %></td>
     <td><%= image.name %></td>
     <td><%= link_to 'Show', image %></td>
     <td><%= link_to 'Edit', edit_image_path(image) %></td>

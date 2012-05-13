@@ -41,7 +41,7 @@ class ImagesControllerTest < ActionController::TestCase
 
   test "should destroy image" do
     assert_difference('Image.count', -1) do
-      delete :destroy, id: @image
+      delete :destroy, id: @image.id
     end
 
     assert_redirected_to images_path

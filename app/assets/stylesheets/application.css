@@ -11,3 +11,18 @@
  *= require_self
  *= require_tree .
 */
+.list_line_even {
+	background: #e0f8f8;
+}
+
+.list_line_odd {
+	background: #0a0;
+}
+
+.list_image {
+	width: 60px;
+}
+
+.show_image {
+	width: 240px;
+}

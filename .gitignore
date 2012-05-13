@@ -15,3 +15,7 @@
 /tmp
 
 .DS_Store
+.project
+.idea/*
+app/assets/images/test
+*.log

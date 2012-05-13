@@ -1,3 +1,5 @@
+require 'ruby-test-single.rb'
+
 class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
@@ -14,7 +16,7 @@ class ImagesController < ApplicationController
   # GET /images/1.json
   def show
     @image = Image.find(params[:id])
-
+    @h = get_exif_data
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @image }
@@ -79,6 +81,14 @@ class ImagesController < ApplicationController
       format.html { redirect_to images_url }
       format.json { head :no_content }
     end
+  end
+  
+  # GET /images/1/exif
+  # GET /images/1/exif.json
+  def get_exif_data
+    @image = Image.find(params[:id])
+    @f = EXIFGatherFile.new
+    @h = @f.find_files( File.dirname(__FILE__) + "/../assets/images/" + @image.location )
   end
   
 end

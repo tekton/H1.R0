@@ -4,6 +4,7 @@ H1R0::Application.routes.draw do
   resources :exif_data
 
   resources :images
+  match 'images/:id/exif' => 'images#get_exif_data'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

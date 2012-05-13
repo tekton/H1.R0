@@ -8,3 +8,5 @@
 Image.delete_all
 Image.create(id: 1, name: "Three Boys", location: "test/agee-467.jpg")
 Image.create(id: 2, name: "The Leg", location: "test/agee-482.jpg")
+Image.create(id: 3, name: "Kaitlin", location: "test/IMG_5421.jpg")
+Image.create(id: 4, name: "Tyler", location: "test/IMG_5349.jpg")

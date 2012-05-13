@@ -1,0 +1,2 @@
+module ExifDataHelper
+end

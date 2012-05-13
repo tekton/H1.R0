@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120512232712) do
+ActiveRecord::Schema.define(:version => 20120513022221) do
+
+  create_table "exif_data", :force => true do |t|
+    t.integer  "parent"
+    t.string   "tag"
+    t.string   "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "images", :force => true do |t|
     t.string   "location"

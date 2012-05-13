@@ -1,0 +1,13 @@
+<% if notice %>
+	<p id="notice"> <%= notice %> </p>
+<%end %>
+
+<div id="top_block">
+	<table>
+		<tr>
+		<% @images.each do |image|%>
+	    	<td><%= image_tag(image.location, class: 'browse_top_block_image') %></td>
+		<% end %>
+		</tr>
+	</table>
+</div>

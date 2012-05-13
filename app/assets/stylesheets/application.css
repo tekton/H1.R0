@@ -11,18 +11,19 @@
  *= require_self
  *= require_tree .
 */
-.list_line_even {
-	background: #e0f8f8;
+body {
+	background-color: #222;
 }
 
-.list_line_odd {
-	background: #0a0;
+#top span {
+	padding: 15px;
+	font-style: bold;
+	font-size: 200%;
+	font-family: sans-serif;
+	background-color: gray;
 }
 
-.list_image {
-	width: 60px;
-}
-
-.show_image {
-	width: 240px;
+#top {
+	margin-bottom: 30px;
+	margin-top: 30px;
 }

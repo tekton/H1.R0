@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Parent:</b>
+  <%= @exif_datum.parent %>
+</p>
+
+<p>
+  <b>Tag:</b>
+  <%= @exif_datum.tag %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @exif_datum.value %>
+</p>
+
+
+<%= link_to 'Edit', edit_exif_datum_path(@exif_datum) %> |
+<%= link_to 'Back', exif_data_path %>

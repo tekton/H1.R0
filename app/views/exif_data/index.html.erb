@@ -1,0 +1,27 @@
+<h1>Listing exif_data</h1>
+
+<table>
+  <tr>
+    <th>Parent</th>
+    <th>Tag</th>
+    <th>Value</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @exif_data.each do |exif_datum| %>
+  <tr>
+    <td><%= exif_datum.parent %></td>
+    <td><%= exif_datum.tag %></td>
+    <td><%= exif_datum.value %></td>
+    <td><%= link_to 'Show', exif_datum %></td>
+    <td><%= link_to 'Edit', edit_exif_datum_path(exif_datum) %></td>
+    <td><%= link_to 'Destroy', exif_datum, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Exif datum', new_exif_datum_path %>

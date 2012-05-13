@@ -1,0 +1,29 @@
+<%= form_for(@exif_datum) do |f| %>
+  <% if @exif_datum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exif_datum.errors.count, "error") %> prohibited this exif_datum from being saved:</h2>
+
+      <ul>
+      <% @exif_datum.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :parent %><br />
+    <%= f.text_field :parent %>
+  </div>
+  <div class="field">
+    <%= f.label :tag %><br />
+    <%= f.text_field :tag %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

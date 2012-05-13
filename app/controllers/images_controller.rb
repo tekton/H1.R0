@@ -1,4 +1,4 @@
-require 'ruby-test-single.rb'
+require 'EXIFGatherFile.rb'
 
 class ImagesController < ApplicationController
   # GET /images
@@ -88,7 +88,7 @@ class ImagesController < ApplicationController
   def get_exif_data
     @image = Image.find(params[:id])
     @f = EXIFGatherFile.new
-    @h = @f.find_files( File.dirname(__FILE__) + "/../assets/images/" + @image.location )
+    @h = @f.find_file( File.dirname(__FILE__) + "/../assets/images/" + @image.location )
   end
   
 end

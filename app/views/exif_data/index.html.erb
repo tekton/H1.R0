@@ -12,7 +12,7 @@
 
 <% @exif_data.each do |exif_datum| %>
   <tr>
-    <td><%= exif_datum.parent %></td>
+    <td><%= exif_datum.image_id %></td>
     <td><%= exif_datum.tag %></td>
     <td><%= exif_datum.value %></td>
     <td><%= link_to 'Show', exif_datum %></td>

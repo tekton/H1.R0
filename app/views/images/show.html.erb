@@ -7,7 +7,7 @@
 
 <p>
   <b>Location:</b>
-  <%= link_to @image.location, asset_path('thumbnails/'+@image.location) %>
+  <%= link_to @image.location, asset_path(@image.location) %>
 </p>
 
 <p>
@@ -19,7 +19,7 @@
 <%= link_to 'Edit', edit_image_path(@image) %> |
 <%= link_to 'Back', images_path %>
 
-<p><%= image_tag(@image.location, class: 'show_image') %></p>
+<p><%= image_tag(asset_path('thumbnails/'+@image.location)) %></p>
 
 <table>
 	<% @h.each_pair do |key,val|%>

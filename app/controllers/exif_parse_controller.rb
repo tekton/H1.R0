@@ -6,8 +6,10 @@ class ExifParseController < ApplicationController
     @h = Hash.new()
   end
   
+  # GET /exif_parse/:test
   def index
-    loc = File.dirname(__FILE__) + "/../assets/images/test/"
+    folder = :test.to_s
+    loc = File.dirname(__FILE__) + "/../assets/images/"+folder
     find_files loc
   end
   
@@ -19,7 +21,8 @@ class ExifParseController < ApplicationController
       when /.jpg\Z/
         logger.info "#{file} is a jpg!"
         
-        fname = "test/"+File.basename(file)
+        folder = :test.to_s
+        fname = folder+"/"+File.basename(file)
         logger.info fname
         image = Image.where("location = ?",fname).first_or_create!(:location => fname)
         if image == nil

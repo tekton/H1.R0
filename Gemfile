@@ -12,6 +12,7 @@ gem 'therubyracer'
 
 gem 'exifr'
 gem 'mini_exiftool'
+gem 'rmagick',:require => 'RMagick'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,7 +1,8 @@
 H1R0::Application.routes.draw do
   get "browse/index"
 
-  match 'exif_parse' => 'exif_parse#index'
+  match 'exif_parse/:test' => 'exif_parse#index'
+  match 'thumbnail/:test' => 'thumbnails#create'
 
   resources :exif_data
 

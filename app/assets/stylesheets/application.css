@@ -30,7 +30,22 @@
 	margin-top: 30px;
 }
 
+#top a {
+	text-decoration: none;
+	color: black;
+}
+
+#top a:hover {
+	text-decoration: underline;
+	background: gray;
+	color: black;
+}
+
 #container {
 	width: 1024px;
 	margin: auto;
+}
+
+.both {
+	clear: both;
 }

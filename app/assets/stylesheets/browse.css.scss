@@ -9,11 +9,9 @@
 #quint li { width:20%; }
 
 ul{
-	width:800px;
+	width:1000px;
 	margin-bottom:20px;
 	overflow:hidden;
-	border-top:1px solid #ccc;
-	border-bottom:1px solid #ccc;
 	padding-top: 5px;
 }
 li{
@@ -22,10 +20,17 @@ li{
 	display:inline;
 }
 
-#tags_list {
+#top_block ul {
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;	
+}
 
+#tags_list {
 	border-radius: 15px;
 	background-color: #999;
 	color: black;
-
+	font-size: 80%;
+	width: 100%;
+	margin: 0 auto;
+	padding: 8px;
 }

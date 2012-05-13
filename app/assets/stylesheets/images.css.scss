@@ -16,3 +16,52 @@
 .show_image {
   width: 240px;
 }
+
+h1 {
+	background-color: #553355;
+	padding: 10px;
+	width: 100%;
+	border-radius: 10px;
+	color: white;
+}
+
+.bottomCenter {
+	border-radius: 10px;
+	background: gray;
+	color: white;
+	text-align: center;
+	width: 100%;
+	padding: 10px;
+}
+
+#img_info {
+	border-radius: 10px;
+	background: #999;
+	width: 100%;
+	padding-left: 10px;
+	padding-right: 10px;	
+}
+
+#img_actions {
+	border-radius: 10px;
+	background: gray;
+	color: white;
+	text-align: center;
+	width: 100%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#show_exif_table {
+	border-radius: 10px;
+	background: gray;
+	color: black;
+	text-align: left;
+	width: 100%;
+	padding-left: 10px;
+	padding-right: 10px;	
+}
+
+#show_exif_table table {
+	margin: 0 auto;
+}

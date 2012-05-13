@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<div id="img_info">
 <p>
   <b>Id:</b>
   <%= @image.id %>
@@ -14,21 +15,25 @@
   <b>Name:</b>
   <%= @image.name %>
 </p>
+</div>
 
-
+<div id="img_actions">
 <%= link_to 'Edit', edit_image_path(@image) %> |
 <%= link_to 'Back', images_path %>
+</div>
 
-<p><%= image_tag(asset_path('thumbnails/'+@image.location)) %></p>
+<p align="center"><%= image_tag(asset_path('thumbnails/'+@image.location)) %></p>
 
-<table>
-	<% @h.each_pair do |key,val|%>
-    	<tr>
-	    	<td><%= key %></td>
-	    	<td><% val.each_pair do |k,v| %>
-	    		<%= k %>
-	    		<% end %>
-	    	</td>
-    	</tr>
-	<% end %>
-</table>
+<div id="show_exif_table">
+	<table class="show_table">
+		<% @h.each_pair do |key,val|%>
+	    	<tr>
+		    	<td><%= key %></td>
+		    	<td><% val.each_pair do |k,v| %>
+		    		<%= k %>
+		    		<% end %>
+		    	</td>
+	    	</tr>
+		<% end %>
+	</table>
+</div>

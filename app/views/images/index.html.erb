@@ -1,29 +1,11 @@
-<h1>Listing images</h1>
+<h1>All Images</h1>
 
-<table>
-  <tr>
-    <th>Id</th>
-    <th></th>
-    <th>Location</th>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div id="top_block">
+	<ul id="quad">
+		<% @images.each do |image|%>
+	    	<li><%= link_to image_tag(asset_path('thumbnails/'+image.location), class: 'browse_top_block_image'), image %></li>
+		<% end %>
+	</ul>
+</div>
 
-<% @images.each do |image| %>
-  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-    <td><%= image.id %></td>
-    <td><%= image_tag(asset_path('thumbnails/'+image.location), class: 'list_image') %></td>
-    <td><%= image.location %></td>
-    <td><%= image.name %></td>
-    <td><%= link_to 'Show', image %></td>
-    <td><%= link_to 'Edit', edit_image_path(image) %></td>
-    <td><%= link_to 'Destroy', image, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Image', new_image_path %>
+<div class="bottomCenter"><%= link_to 'New Image', new_image_path %></div>

@@ -9,7 +9,9 @@
 <body class='body'>
 	<div id="container">
 	<div id="top">
-		<span><%= link_to "H1.R0", "/" =%></span>
+		<span id="top_nav_home"><%= link_to "H1.R0", "/" =%></span>
+		<span id="top_nav_images"><%= link_to "images", "/images" =%></span>
+		<span id="top_nav_exif"><%= link_to "exif", "/exif_data" =%></span>
 	</div>
 	<div id="content">
 		<%= yield %>

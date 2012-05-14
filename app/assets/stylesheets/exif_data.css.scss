@@ -6,10 +6,19 @@
 }
 
 .exif_table {
-	background: #022855;
+	
 	padding: 10px;
 	width: 100%;
-	color: #306FBA;
+	color: white;
 	margin-bottom: 10px;
-	border-radius: 10px;
+	border-top: 1px gray solid;
+	border-bottom: 1px gray solid;
+}
+
+.exif_table a {
+	color: gray;
+}
+
+.exif_table table tr td {
+	padding: 5px;
 }

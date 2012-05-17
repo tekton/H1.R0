@@ -31,14 +31,13 @@ class ThumbnailsController < ApplicationController
       when /.jpg\Z/
         logger.info "Calling create_thumbnail with #{folder} :: #{file}"
         #create_thumbnail folder, file
-        QC.enqueue "ThumbnailsHelper.create_thumbnail", folder, file
-        QC.enqueue "Kernel.puts", Time.now.to_s
+        ThumbnailsWorker.perform_async(folder, file)
       end
     end
     
   end
   
-  def create_thumbnail(folder, file)  
+  def create_thumbnail(folder, file)
     logger.info "creating thumbnail:: #{folder} / #{file}"
     loc = File.dirname(__FILE__) + "/../assets/images/"+folder+"/"+file
     

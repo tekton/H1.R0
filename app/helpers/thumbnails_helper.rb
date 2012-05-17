@@ -1,6 +1,5 @@
-module ThumbnailsHelper
-  
-  def create_thumbnail(folder, file)  
+module ThumbnailsHelper  
+  def create_thumbnail(folder, file)
     logger.info "creating thumbnail:: #{folder} / #{file}"
     loc = File.dirname(__FILE__) + "/../assets/images/"+folder+"/"+file
     
@@ -8,7 +7,6 @@ module ThumbnailsHelper
     img.resize_to_fit!(200, 133)
     
     loc = File.dirname(__FILE__) + "/../assets/images/thumbnails/"+folder+"/"+file
-    img.write(loc) 
+    img.write(loc)   
   end
-  
 end

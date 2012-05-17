@@ -41,7 +41,6 @@ class ExifParseController < ApplicationController
   def exif_loop_db(exif_data, id)
     logger.info "loop through exif data for #{id}"
     exif_loop(exif_data, id)
-    #QC.enqueue "ExifParseController.exif_loop", exif_data, id
   end
   
   def exif_loop(exif_data, id)

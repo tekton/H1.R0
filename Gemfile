@@ -44,4 +44,6 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem 'queue_classic'
+#gem 'queue_classic', "2.0.0" ###### didn't really work out at all...
+gem 'redis'
+gem 'sidekiq'

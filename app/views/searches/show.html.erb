@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Hash:</b>
+  <%= @search.hash %>
+</p>
+
+<p>
+  <b>Serial:</b>
+  <%= @search.serial %>
+</p>
+
+
+<%= link_to 'Edit', edit_search_path(@search) %> |
+<%= link_to 'Back', searches_path %>

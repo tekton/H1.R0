@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+
+<%= params[:filter] %><br />
+<%= params[:val] %><br />
+<%= params[:format] %><br />
+
+
+<div class="exif_table">
+
+<table>
+  <tr>
+    <th>Image ID</th>
+    <th>Tag</th>
+    <th>Value</th>
+  </tr>
+
+<% @exif.each do |exif_datum| %>
+  <tr>
+    <td><%= exif_datum.image_id %></td>
+    <td><%= exif_datum.tag %></td>
+    <td><%= exif_datum.value %></td>
+  </tr>
+<% end %>
+</table>
+
+</div>

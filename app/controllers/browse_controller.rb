@@ -6,7 +6,7 @@ class BrowseController < ApplicationController
     ### Get exif tags list w/count
     
     #@exif = ExifDatum.calculate(:count, :value, :group => "tag", :select => :tag)
-    @exif = ExifDatum.select("tag, value, count(*) as count").group("tag, value")
+    @exif = ExifDatum.select("tag, value, count(*) as count").group("tag, value").order("tag asc")
     logger.info "######################"
     #logger.info @exif
     @exif.each do |exif_data|

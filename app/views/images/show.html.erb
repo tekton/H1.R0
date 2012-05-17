@@ -26,14 +26,18 @@
 
 <div id="show_exif_table">
 	<table class="show_table">
+		<% @ary = [] %>
 		<% @h.each_pair do |key,val|%>
 	    	<tr>
 		    	<td><%= key %></td>
 		    	<td><% val.each_pair do |k,v| %>
 		    		<%= k %>
+		    		<% @ary.push k %>
 		    		<% end %>
 		    	</td>
 	    	</tr>
 		<% end %>
 	</table>
+	<% @str = Marshal.dump(@h) %>
+	<%= @h.to_yaml %>
 </div>

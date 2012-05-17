@@ -1,9 +1,13 @@
 H1R0::Application.routes.draw do
+  resources :searches
+
   get "browse/index"
 
   match 'exif_parse/:test' => 'exif_parse#index'
   match 'thumbnail/:test' => 'thumbnails#create_from_folder'
   match 'iptc_parse/:test' => 'iptc_parse#iptc_from_folder'
+  
+  match 'filter/:filter/:val' => 'filter#filter'
 
   resources :exif_data
 

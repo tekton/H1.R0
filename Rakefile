@@ -4,4 +4,8 @@
 
 require File.expand_path('../config/application', __FILE__)
 
+require "rake"
+require "queue_classic"
+require "queue_classic/tasks"
+
 H1R0::Application.load_tasks

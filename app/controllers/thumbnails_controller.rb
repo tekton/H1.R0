@@ -30,7 +30,9 @@ class ThumbnailsController < ApplicationController
       case file.downcase
       when /.jpg\Z/
         logger.info "Calling create_thumbnail with #{folder} :: #{file}"
-        create_thumbnail folder, file
+        #create_thumbnail folder, file
+        QC.enqueue "ThumbnailsHelper.create_thumbnail", folder, file
+        QC.enqueue "Kernel.puts", Time.now.to_s
       end
     end
     

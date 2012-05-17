@@ -57,6 +57,9 @@ GEM
     multi_json (1.3.5)
     pg (0.13.2)
     polyglot (0.3.3)
+    queue_classic (2.0.0)
+      pg (~> 0.13.2)
+      scrolls (~> 0.0.8)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -88,6 +91,7 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    scrolls (0.0.9)
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -114,6 +118,7 @@ DEPENDENCIES
   exifr
   jquery-rails
   pg
+  queue_classic
   rails (= 3.2.3)
   rmagick
   sass-rails (~> 3.2.3)

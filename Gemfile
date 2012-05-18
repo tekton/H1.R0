@@ -12,7 +12,6 @@ gem 'execjs'
 gem 'therubyracer'
 
 gem 'exifr'
-#gem 'mini_exiftool'
 gem 'rmagick',:require => 'RMagick'
 
 # Gems used only for assets and not required

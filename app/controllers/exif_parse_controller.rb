@@ -30,12 +30,17 @@ class ExifParseController < ApplicationController
         if image == nil
           logger.info "Image not in database...yet..."
         else
-          exif_data = nil
-          exif_data = EXIFR::JPEG.new(file)
-          exif_loop_db(exif_data, image.id)
+          #exif_file(file)
+          ExifWorker.perform_async(loc+"/"+file, image.id)
         end
       end
     end
+  end
+  
+  def exif_file(file, id)
+    exif_data = nil
+    exif_data = EXIFR::JPEG.new(file)
+    exif_loop_db(exif_data, id)
   end
   
   def exif_loop_db(exif_data, id)

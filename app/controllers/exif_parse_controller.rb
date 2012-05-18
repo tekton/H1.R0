@@ -55,7 +55,7 @@ class ExifParseController < ApplicationController
       i.each_pair do |key,val|
         logger.info "#{key} :: #{val}"
         begin
-        exif = ExifDatum.where(:image_id => id.to_s, :tag=>key.to_s, :value=>val.to_s).first_or_create!(:image_id => id.to_s, :tag=>key.to_s, :value=>val.to_s)
+        exif = ExifDatum.where(:image_id => id, :tag=>key.to_s, :value=>val.to_s).first_or_create!(:image_id => id, :tag=>key.to_s, :value=>val.to_s)
         rescue
           #just go to the next one...
         end

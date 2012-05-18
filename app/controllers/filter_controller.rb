@@ -13,7 +13,7 @@ class FilterController < ApplicationController
       @val += "."+@format
     end
     
-    @exif = ExifDatum.where("tag = ? AND value = ?", @filter, @val)
+    @exif = ExifDatum.where("tag = ? AND value = ?", @filter, @val).joins(:image)
     
   end
   

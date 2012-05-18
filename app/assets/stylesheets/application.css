@@ -23,7 +23,7 @@
 
 #top a {
 	text-decoration: none;
-	color: black;
+	color: #aaa;
 }
 
 #top_nav_home a:hover {
@@ -55,6 +55,7 @@
 	padding: 10px;
 	color: white;
 	border-radius: 15px;
+	color: gray;
 }
 
 #top_nav_images a:hover {
@@ -65,7 +66,7 @@
 #top_nav_exif {
 	background: #022855;
 	padding: 10px;
-	color: white;
+	color: gray;
 	border-radius: 15px;
 }
 

@@ -22,7 +22,7 @@
 <%= link_to 'Back', images_path %>
 </div>
 
-<p align="center"><%= image_tag(asset_path('thumbnails/'+@image.location)) %></p>
+<p align="center"><%= link_to image_tag(asset_path('thumbnails/'+@image.location)), asset_path(@image.location) %></p>
 
 <div id="show_exif_table">
 	<table class="show_table">

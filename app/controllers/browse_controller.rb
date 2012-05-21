@@ -1,7 +1,7 @@
 class BrowseController < ApplicationController
   # GET /
   def index
-    @images = Image.order(:name).order("RANDOM()").limit(4)
+    @images = Image.order(:name).order("RANDOM()").limit(4) ### TODO: needs to be optimized, because this gets out of hand quickly...
     
     ### Get exif tags list w/count
     

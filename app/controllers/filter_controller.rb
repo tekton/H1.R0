@@ -13,7 +13,12 @@ class FilterController < ApplicationController
       @val += "."+@format
     end
     
-    @exif = ExifDatum.where("tag = ? AND value = ?", @filter, @val).joins(:image)
+    @exif = ExifDatum.where("tag = ? AND value = ?", @filter, @val).joins(:image).includes(:image)
+      @exif.each do |exif_datum|
+        logger.info exif_datum.image_id
+        logger.info exif_datum.image.location
+      end
+    #@exi2 = ExifDatum.select("tag, value, count(*) as count").where("tag = ? AND value = ?", @filter, @val).group("tag, value").order("tag asc")
     
   end
   

@@ -8,6 +8,7 @@ H1R0::Application.routes.draw do
   match 'iptc_parse/:test' => 'iptc_parse#iptc_from_folder'
   
   match 'filter/:filter/:val' => 'filter#filter'
+  match 'filter/:hash_filter' => 'filter#hash_filter'
 
   resources :exif_data
 

@@ -14,25 +14,8 @@
 	<ul id="quad">
 		<% @exif.each do |exif_data| %>
 			<% if exif_data.tag != "date_time_digitized" && exif_data.tag != "user_comment" && exif_data.tag != "date_time_original" && exif_data.tag != "date_time" && exif_data.tag != "subject_area" %>
-	      		<li><% @str = exif_data.tag + ":" + exif_data.value + " (" + exif_data.count.to_s + ")" %>
-	      			
-					<%
-					
-					h = Array.new
-					h[0] = { "tag" => exif_data.tag, "value" => exif_data.value }
-					h[1] = { "tag" => exif_data.tag, "value" => exif_data.value }
-					y = h.to_yaml
-					
-					logger.info y
-					
-					q = Digest::MD5.new
-					q.update(y)
-					logger.info q
-					
-					%>
-	
-	      			<%= link_to @str, "/filter/"+exif_data.tag+"/"+exif_data.value.gsub("/", "__") %>
-	      			
+	      		<li><% @str = exif_data.tag + ":" + exif_data.value + " (" + exif_data.count.to_s + ")" %>	
+	      			<%= link_to @str, "/filter/"+exif_data.q.to_s %> 			
 	      		</li>
 	    	<% end %>
 		<% end %>

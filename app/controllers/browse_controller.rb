@@ -11,6 +11,10 @@ class BrowseController < ApplicationController
     #logger.info @exif
     @exif.each do |exif_data|
       logger.info exif_data.tag + " :: " + exif_data.value + " :: " + exif_data.count.to_s
+      @h = { "tag" => exif_data.tag, "value" => exif_data.value }
+      @y = @h.to_yaml
+      @q = Digest::MD5.new.update(@y)
+      exif_data.q = @q
     end
     logger.info "######################"
   end

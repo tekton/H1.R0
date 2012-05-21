@@ -11,8 +11,8 @@
 development:
   adapter: postgresql
   database: h1r0
-  pool: 5
-  username: tekton
+  pool: 20
+  username: h1r0
   password: ruby
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -20,13 +20,13 @@ development:
 test:
   adapter: postgresql
   database: h1r0_test
-  pool: 5
-  username: tekton
+  pool: 20
+  username: h1r0
   password: ruby
 
 production:
   adapter: postgresql
-  database: h1r0
-  pool: 5
-  username: tekton
+  database: h1r0_prod
+  pool: 20
+  username: h1r0
   password: ruby

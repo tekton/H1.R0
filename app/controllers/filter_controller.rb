@@ -32,4 +32,10 @@ class FilterController < ApplicationController
     
   end
   
+  def hash_filter
+    
+    @hash_filter = params[:hash]
+    
+  end
+  
 end

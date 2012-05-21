@@ -26,7 +26,7 @@ test:
 
 production:
   adapter: postgresql
-  database: h1r0_prod
+  database: h1r0
   pool: 5
   username: tekton
   password: ruby

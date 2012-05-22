@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120518100254) do
+ActiveRecord::Schema.define(:version => 20120522005828) do
 
   create_table "exif_data", :force => true do |t|
     t.integer  "parent"
@@ -30,10 +30,15 @@ ActiveRecord::Schema.define(:version => 20120518100254) do
   end
 
   create_table "searches", :force => true do |t|
-    t.string   "hash"
-    t.string   "serial"
+    t.string   "md5hash"
+    t.text     "serial"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "new_tag"
+    t.string   "new_val"
+    t.string   "left"
   end
+
+  add_index "searches", ["md5hash"], :name => "index_searches_on_md5hash", :unique => true
 
 end

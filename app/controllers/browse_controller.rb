@@ -20,7 +20,7 @@ class BrowseController < ApplicationController
       @q = Digest::MD5.new.update(@y)
       
       ### TODO: create helper for this and "start" from a blank hash...
-      filter_check(@q.to_s, @y)
+      filter_check(@q.to_s, @h)
       
       exif_data.q = @q
     end

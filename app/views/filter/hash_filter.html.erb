@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="exif_data_top"><%= @hash_filter %></h1>
+<div class="hash_data_top">
+		|
+		<% @s.serial.each do |t| %>
+	      <%= t["tag"] %> :: <%= t["value"] =%> |
+	    <% end %>
+</div>
 
 <div class="exif_table">
 

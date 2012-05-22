@@ -3,11 +3,11 @@ H1R0::Application.routes.draw do
 
   get "browse/index"
 
+  ### really these are admin functions and should be namespaces accordingly
   match 'exif_parse/:test' => 'exif_parse#index'
   match 'thumbnail/:test' => 'thumbnails#create_from_folder'
   match 'iptc_parse/:test' => 'iptc_parse#iptc_from_folder'
   
-  match 'filter/:filter/:val' => 'filter#filter'
   match 'filter/:hash_filter' => 'filter#hash_filter'
 
   resources :exif_data

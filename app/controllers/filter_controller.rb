@@ -38,36 +38,26 @@ class FilterController < ApplicationController
     
     s = Search.where("md5hash = ?", @hash_filter).first
     
-    @tags = YAML::load(s.serial)
-    @t = YAML::dump(@tags)
+    @strs = "select image_id, count(*) from exif_data inner join images on exif_data.image_id = images.id where ";
     
-    #logger.info @tags
-    #logger.info @t
+    logger.info s.serial.length
     
-    @tags = @tags.to_a
-    logger.info "tags.to_a ::: "
-    logger.info @tags
-    
-    @tagz = Array.new
-    @values = Array.new
-    
-    @tags.each do |k,v|
-      #logger.info k + " :: " + v
-      
-      if k == "tag"
-        @tagz.push(v)
+    i = 0
+    s.serial.each do |t|
+      if i != 0
+        @strs += " OR "
       end
-      
-      if k == "value"
-        @values.push v
-      end
-      
+      @strs += "(tag = '#{t["tag"]}' and value = '#{t["value"]}') "
+      i = 1
     end
     
+      @strs += "group by image_id having count(*) = #{s.serial.length} "
+    
+      logger.info @strs
     ##array for the id's for searching later
     @id_array = Array.new
     
-    @exif = ExifDatum.where("tag = ? and value = ?", @tagz, @values).joins(:image).includes(:image)
+    @exif = ExifDatum.find_by_sql(@strs.to_s)
     @exif.each do |img|
       #logger.info img.image_id
       #logger.info img.image.location
@@ -77,27 +67,22 @@ class FilterController < ApplicationController
     @exi2 = ExifDatum.select("tag, value, count(*) as count").where("image_id IN (?)", @id_array).group("tag, value").order("tag asc")
     #@exi2 = ExifDatum.all(:conditions => {["image_id = ?", @id_array]}) #.select("tag, value, count(*) as count") ##.group("tag, value").order("tag asc")
       @exi2.each do |exi2_data|
-        #logger.info exi2_data.tag + " :: " + exi2_data.value + " :: "+ exi2_data.count
-        
-        @yml = YAML::dump(s.serial)
-        
-=begin
-@hash_array = Array.new
+      
+        @h = Array.new
+        s.serial.each do |t|
+          @h.push({ "tag" => t["tag"], "value" => t["value"] })
+        end
+        @h.push({ "tag" => exi2_data.tag, "value" => exi2_data.value })
 
-@yml.each do |t,v|
-  logger.info t
-  logger.info v
-  #@hash_array.push({"tag" => t.tag, "value" => t.value})
-end
+        logger.info @h
+        logger.info "\n\n###"
+        
+        @y = @h.to_yaml
+        @q = Digest::MD5.new.update(@y)
 
-@hash_array.push({ "tag" => exi2_data.tag, "value" => exi2_data.value })
-=end
+        filter_check(@q.to_s, @h)
+        exi2_data.q = @q
         
-        @yml += "\n---\n\ttag: #{exi2_data.tag}\n\tvalue: #{exi2_data.value}"
-        logger.info @yml
-        
-        logger.info "\n\n"
-        #logger.info @hash_array
       end
     
   end

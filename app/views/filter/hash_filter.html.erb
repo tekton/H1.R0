@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="exif_data_top"><%= @filter %> | <%= @val %></h1>
+
+<div class="exif_table">
+
+<ul id="quad">
+	<% @exif.each do |exif_datum| %>
+		<li><%= link_to image_tag(asset_path('thumbnails/'+exif_datum.image.location), class: 'browse_top_block_image'), exif_datum.image %></li>
+	<% end %>
+</ul>
+
+<div id="tags_list">
+	<ul id="quad">
+		<% @exi2.each do |exif_data| %>
+			<% if exif_data.tag != "date_time_digitized" && exif_data.tag != "user_comment" && exif_data.tag != "date_time_original" && exif_data.tag != "date_time" && exif_data.tag != "subject_area" %>
+	      		<li><% @str = exif_data.tag + ":" + exif_data.value + " (" + exif_data.count.to_s + ")" %>
+	      			
+	      			<%= link_to @str, "/filter/"+exif_data.tag+"/"+exif_data.value.gsub("/", "__") %>
+	      			
+	      		</li>
+	    	<% end %>
+		<% end %>
+	</ul>
+	<div class="both"></div>
+</div>
+
+</div>

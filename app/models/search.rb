@@ -1,3 +1,3 @@
 class Search < ActiveRecord::Base
-  attr_accessible :hash, :serial
+  attr_accessible :md5hash, :serial, :new_tag, :new_value
 end

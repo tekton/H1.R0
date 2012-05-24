@@ -1,15 +1,14 @@
 <% if notice %>
 	<p id="notice"> <%= notice %> </p>
 <%end %>
-<div class="ui-state-highlight ui-corner-all"> TODO: Implement search here </div>
+
 <div id="tags_list">
 		<ul id="single">
-			<% @exif.each do |exif_data| %>
-		      		<li><% @str = exif_data.tag + ":" + exif_data.value + " (" + exif_data.count.to_s + ")" %>	
+			<% @exif_data.each do |exif_data| %>
+		      		<li><% @str = exif_data.tag + ":" + exif_data.value %>	
 		      			<%= link_to @str, filter_url(:hash_filter => exif_data.q.to_s) %>
 		      		</li>
 			<% end %>
 		</ul>
 	<div class="both"></div>
 </div>
-	

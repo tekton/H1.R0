@@ -2,7 +2,20 @@ class ExifDataController < ApplicationController
   # GET /exif_data
   # GET /exif_data.json
   def index
-    @exif_data = ExifDatum.all
+    @exif = ExifDatum.select("tag, value, count(*) as count").group("tag, value").order("tag asc")
+    logger.info "######################"
+    #logger.info @exif
+    @exif.each do |exif_data|
+      logger.info exif_data.tag + " :: " + exif_data.value + " :: " + exif_data.count.to_s
+      @h = Array.new.push({ "tag" => exif_data.tag, "value" => exif_data.value })
+      @y = @h.to_yaml
+      @q = Digest::MD5.new.update(@y)
+      
+      ### TODO: create helper for this and "start" from a blank hash...
+      filter_check(@q.to_s, @h)
+      
+      exif_data.q = @q
+    end
 
     respond_to do |format|
       format.html # index.html.erb

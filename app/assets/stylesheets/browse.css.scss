@@ -7,7 +7,11 @@
 
 #quad li { width:25%; }
 #quint li { width:20%; }
-
+#single li {
+  line-height:1.5em;
+  float:none;
+  display:block;
+}
 ul{
 	width:1000px;
 	margin-bottom:20px;

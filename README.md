@@ -3,7 +3,7 @@ H1.R0
 
 Image browsing and exif data testing
 
-Test environment setup at http://darrgotek.com:3000/
+Test environment setup at http://darrgotek.com/h1r0/
 
 Software is still in alpha, but works for basic drill down of exif data.
 

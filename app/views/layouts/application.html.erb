@@ -9,9 +9,9 @@
 <body class='body'>
 	<div id="container">
 	<div id="top">
-		<span id="top_nav_home"><%= link_to "H1.R0", "/" =%> [alpha]</span>
-		<span id="top_nav_images"><%= link_to "images", "/images" =%> [slow]</span>
-		<span id="top_nav_exif"><%= link_to "exif", "/exif_data" =%> [NYI]</span>
+		<span id="top_nav_home"><%= link_to "H1.R0", root_url =%> [alpha]</span>
+		<span id="top_nav_images"><%= link_to "images", images_url =%> [slow]</span>
+		<span id="top_nav_exif"><%= link_to "exif", exif_data_url =%> [NYI]</span>
 	</div>
 	<div id="content">
 		<%= yield %>

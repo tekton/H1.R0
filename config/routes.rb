@@ -8,7 +8,7 @@ H1R0::Application.routes.draw do
   match 'thumbnail/:test' => 'thumbnails#create_from_folder'
   match 'iptc_parse/:test' => 'iptc_parse#iptc_from_folder'
   
-  match 'filter/:hash_filter' => 'filter#hash_filter'
+  match 'filter/:hash_filter' => 'filter#hash_filter', :as => :filter
 
   resources :exif_data
 

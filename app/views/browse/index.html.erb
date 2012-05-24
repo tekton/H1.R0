@@ -15,7 +15,7 @@
 		<% @exif.each do |exif_data| %>
 			<% if exif_data.tag != "date_time_digitized" && exif_data.tag != "user_comment" && exif_data.tag != "date_time_original" && exif_data.tag != "date_time" && exif_data.tag != "subject_area" %>
 	      		<li><% @str = exif_data.tag + ":" + exif_data.value + " (" + exif_data.count.to_s + ")" %>	
-	      			<%= link_to @str, "/filter/"+exif_data.q.to_s %>		
+	      			<%= link_to @str, filter_url(:hash_filter => exif_data.q.to_s) %>
 	      		</li>
 	    	<% end %>
 		<% end %>

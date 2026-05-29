@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>H1.R0</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; background: #111; color: #eee; }
+    #container { max-width: 1200px; margin: 0 auto; }
+    #top { padding: 8px 16px; background: #222; border-bottom: 1px solid #444; }
+    #top span { margin-right: 12px; }
+    #top a { color: #9cf; text-decoration: none; }
+    #content { padding: 16px; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    li { display: inline-block; margin: 4px; }
+    .browse_top_block_image { width: 200px; height: 133px; object-fit: cover; border: 1px solid #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #444; padding: 6px 10px; text-align: left; }
+    th { background: #333; }
+    a { color: #9cf; }
+    .both { clear: both; }
+    input[type=text], input[type=number] { background: #333; color: #eee; border: 1px solid #555; padding: 4px; }
+    input[type=submit] { background: #555; color: #eee; border: 1px solid #777; padding: 6px 12px; cursor: pointer; }
+    #error_explanation { background: #622; border: 1px solid #a55; padding: 8px; margin-bottom: 12px; }
+  </style>
+</head>
+<body class="body">
+  <div id="container">
+    <div id="top">
+      <span id="top_nav_home"><a href="/">H1.R0</a> [alpha]</span>
+      <span id="top_nav_images"><a href="/images">images</a> [slow]</span>
+      <span id="top_nav_exif"><a href="/exif_data">exif</a></span>
+      <span id="top_nav_searches"><a href="/searches">searches</a></span>
+    </div>
+    <div id="content">
+      {% block content %}{% endblock content %}
+    </div>
+    <div id="foot"></div>
+  </div>
+</body>
+</html>

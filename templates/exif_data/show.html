@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p><b>Parent (image_id):</b> {{ exif_datum.image_id }}</p>
+<p><b>Tag:</b> {{ exif_datum.tag }}</p>
+<p><b>Value:</b> {{ exif_datum.value }}</p>
+
+<a href="/exif_data/{{ exif_datum.id }}/edit">Edit</a> |
+<a href="/exif_data">Back</a>
+
+{% endblock content %}

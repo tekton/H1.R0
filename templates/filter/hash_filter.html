@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="hash_data_top">
+  |
+  {% for pair in serial_display %}
+    {{ pair.0 }} :: {{ pair.1 }} |
+  {% endfor %}
+</div>
+
+<div class="exif_table">
+
+  <ul id="quad">
+    {% for row in matched_exif %}
+      <li>
+        <a href="/images/{{ row.image_id }}">
+          <img src="/assets/images/thumbnails/{{ row.location }}" class="browse_top_block_image" alt="" />
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <div id="tags_list">
+    <ul id="quad">
+      {% for row in exif_rows %}
+        <li>
+          <a href="/filter/{{ row[0] }}">{{ row[1] }}:{{ row[2] }} ({{ row[3] }})</a>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="both"></div>
+  </div>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="top_block">
+  <ul id="quad">
+    {% for image in images %}
+      <li>
+        <a href="/images/{{ image.id }}">
+          <img src="/assets/images/thumbnails/{{ image.location }}" class="browse_top_block_image" alt="{{ image.name }}" />
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div id="tags_list">
+  <ul id="quad">
+    {% for row in exif_rows %}
+      {% set tag = row.0 %}
+      {% set hash = row.0 %}
+      {# row = (hash, tag, value, count) #}
+      {# Tera tuple access via index — row is a JSON array #}
+      {% if row[1] != "DateTimeDigitized" and row[1] != "UserComment" and row[1] != "DateTimeOriginal" and row[1] != "DateTime" and row[1] != "SubjectArea"
+         and row[1] != "date_time_digitized" and row[1] != "user_comment" and row[1] != "date_time_original" and row[1] != "date_time" and row[1] != "subject_area" %}
+        <li>
+          <a href="/filter/{{ row[0] }}">{{ row[1] }}:{{ row[2] }} ({{ row[3] }})</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <div class="both"></div>
+</div>
+
+{% endblock content %}

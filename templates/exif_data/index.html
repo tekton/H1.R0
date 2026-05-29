@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="ui-state-highlight ui-corner-all">TODO: Implement search here</div>
+
+<div id="tags_list">
+  <ul id="single">
+    {% for row in exif_rows %}
+      {% if row[1] != "DateTimeDigitized" and row[1] != "UserComment" and row[1] != "DateTimeOriginal" and row[1] != "DateTime" and row[1] != "SubjectArea"
+         and row[1] != "date_time_digitized" and row[1] != "user_comment" and row[1] != "date_time_original" and row[1] != "date_time" and row[1] != "subject_area" %}
+        <li>
+          <a href="/filter/{{ row[0] }}">{{ row[1] }}:{{ row[2] }} ({{ row[3] }})</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <div class="both"></div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>New Search</h1>
+
+{% if error %}
+  <div id="error_explanation"><p>{{ error }}</p></div>
+{% endif %}
+
+<form method="post" action="/searches">
+  <div class="field">
+    <label>MD5 Hash</label><br />
+    <input type="text" name="md5hash" value="" />
+  </div>
+  <div class="field">
+    <label>Serial (JSON)</label><br />
+    <input type="text" name="serial" value="" />
+  </div>
+  <div class="field">
+    <label>New Tag</label><br />
+    <input type="text" name="new_tag" value="" />
+  </div>
+  <div class="field">
+    <label>New Val</label><br />
+    <input type="text" name="new_val" value="" />
+  </div>
+  <div class="field">
+    <label>Left</label><br />
+    <input type="text" name="left" value="" />
+  </div>
+  <div class="actions">
+    <input type="submit" value="Create Search" />
+  </div>
+</form>
+
+<a href="/searches">Back</a>
+
+{% endblock content %}

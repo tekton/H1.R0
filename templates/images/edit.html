@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Editing Image</h1>
+
+{% if error %}
+  <div id="error_explanation"><p>{{ error }}</p></div>
+{% endif %}
+
+<form method="post" action="/images/{{ image.id }}">
+  <div class="field">
+    <label>Location</label><br />
+    <input type="text" name="location" value="{{ image.location }}" />
+  </div>
+  <div class="field">
+    <label>Name</label><br />
+    <input type="text" name="name" value="{{ image.name }}" />
+  </div>
+  <div class="actions">
+    <input type="submit" value="Update Image" />
+  </div>
+</form>
+
+<a href="/images/{{ image.id }}">Show</a> |
+<a href="/images">Back</a>
+
+{% endblock content %}

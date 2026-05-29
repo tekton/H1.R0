@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>New EXIF Datum</h1>
+
+{% if error %}
+  <div id="error_explanation"><p>{{ error }}</p></div>
+{% endif %}
+
+<form method="post" action="/exif_data">
+  <div class="field">
+    <label>Image ID</label><br />
+    <input type="number" name="image_id" value="" />
+  </div>
+  <div class="field">
+    <label>Tag</label><br />
+    <input type="text" name="tag" value="" />
+  </div>
+  <div class="field">
+    <label>Value</label><br />
+    <input type="text" name="value" value="" />
+  </div>
+  <div class="actions">
+    <input type="submit" value="Create ExifDatum" />
+  </div>
+</form>
+
+<a href="/exif_data">Back</a>
+
+{% endblock content %}

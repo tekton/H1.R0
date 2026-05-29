@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>EXIF Data for Image {{ image.id }}: {{ image.name }}</h2>
+
+<p><a href="/assets/images/{{ image.location }}">{{ image.location }}</a></p>
+
+<table class="show_table">
+  <tr><th>Tag</th><th>Value</th></tr>
+  {% for pair in exif_pairs %}
+    <tr>
+      <td>{{ pair.0 }}</td>
+      <td>{{ pair.1 }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+<p><a href="/images/{{ image.id }}">Back to Image</a></p>
+
+{% endblock content %}

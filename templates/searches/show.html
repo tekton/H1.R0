@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p><b>Hash:</b> {{ search.md5hash }}</p>
+<p><b>Serial:</b> {{ search.serial }}</p>
+<p><b>New Tag:</b> {{ search.new_tag }}</p>
+<p><b>New Val:</b> {{ search.new_val }}</p>
+<p><b>Left:</b> {{ search.left }}</p>
+
+<a href="/searches/{{ search.id }}/edit">Edit</a> |
+<a href="/searches">Back</a>
+
+{% endblock content %}

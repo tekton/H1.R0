@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if error %}
+  <div id="error_explanation"><p>{{ error }}</p></div>
+{% endif %}
+
+<div id="img_info">
+  <p><b>Id:</b> {{ image.id }}</p>
+  <p><b>Location:</b> <a href="/assets/images/{{ image.location }}">{{ image.location }}</a></p>
+  <p><b>Name:</b> {{ image.name }}</p>
+</div>
+
+<div id="img_actions">
+  <a href="/images/{{ image.id }}/edit">Edit</a> |
+  <a href="/images">Back</a> |
+  <a href="/images/{{ image.id }}/exif">View EXIF</a>
+  <form method="post" action="/images/{{ image.id }}/delete" style="display:inline">
+    <input type="submit" value="Delete" onclick="return confirm('Are you sure?')" />
+  </form>
+</div>
+
+<p align="center">
+  <a href="/assets/images/{{ image.location }}">
+    <img src="/assets/images/thumbnails/{{ image.location }}" alt="{{ image.name }}" />
+  </a>
+</p>
+
+{% endblock content %}

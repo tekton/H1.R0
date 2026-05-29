@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Editing Search</h1>
+
+{% if error %}
+  <div id="error_explanation"><p>{{ error }}</p></div>
+{% endif %}
+
+<form method="post" action="/searches/{{ search.id }}">
+  <div class="field">
+    <label>MD5 Hash</label><br />
+    <input type="text" name="md5hash" value="{{ search.md5hash }}" />
+  </div>
+  <div class="field">
+    <label>Serial (JSON)</label><br />
+    <input type="text" name="serial" value="{{ search.serial }}" />
+  </div>
+  <div class="field">
+    <label>New Tag</label><br />
+    <input type="text" name="new_tag" value="{{ search.new_tag }}" />
+  </div>
+  <div class="field">
+    <label>New Val</label><br />
+    <input type="text" name="new_val" value="{{ search.new_val }}" />
+  </div>
+  <div class="field">
+    <label>Left</label><br />
+    <input type="text" name="left" value="{{ search.left }}" />
+  </div>
+  <div class="actions">
+    <input type="submit" value="Update Search" />
+  </div>
+</form>
+
+<a href="/searches/{{ search.id }}">Show</a> |
+<a href="/searches">Back</a>
+
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Listing Searches</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Hash</th>
+    <th>Serial</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  {% for search in searches %}
+  <tr>
+    <td>{{ search.id }}</td>
+    <td>{{ search.md5hash }}</td>
+    <td>{{ search.serial }}</td>
+    <td><a href="/searches/{{ search.id }}">Show</a></td>
+    <td><a href="/searches/{{ search.id }}/edit">Edit</a></td>
+    <td>
+      <form method="post" action="/searches/{{ search.id }}/delete" style="display:inline">
+        <input type="submit" value="Destroy" onclick="return confirm('Are you sure?')" />
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+<br />
+<a href="/searches/new">New Search</a>
+
+{% endblock content %}

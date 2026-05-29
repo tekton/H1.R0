@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="img_info">
+  <p><b>Id:</b> {{ image.id }}</p>
+  <p><b>Location:</b> <a href="/assets/images/{{ image.location }}">{{ image.location }}</a></p>
+  <p><b>Name:</b> {{ image.name }}</p>
+</div>
+
+<div id="img_actions">
+  <a href="/images/{{ image.id }}/edit">Edit</a> |
+  <a href="/images">Back</a> |
+  <form method="post" action="/images/{{ image.id }}/delete" style="display:inline">
+    <input type="submit" value="Delete" onclick="return confirm('Are you sure?')">
+  </form>
+</div>
+
+<p align="center">
+  <a href="/assets/images/{{ image.location }}">
+    <img src="/assets/images/thumbnails/{{ image.location }}" alt="{{ image.name }}">
+  </a>
+</p>
+
+<div id="show_exif_table">
+  <table class="show_table">
+    <thead>
+      <tr><th>Tag</th><th>Value</th></tr>
+    </thead>
+    <tbody>
+      {% for tag, val in exif_pairs.items() %}
+        <tr>
+          <td>{{ tag }}</td>
+          <td>{{ val }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

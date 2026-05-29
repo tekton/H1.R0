@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>New Image</h1>
+
+{% if errors %}
+<div id="error_explanation">
+  <h2>{{ errors|length }} error(s) prevented this image from being saved:</h2>
+  <ul>
+    {% for msg in errors %}
+      <li>{{ msg }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="/images">
+  <div class="field">
+    <label for="location">Location</label><br>
+    <input type="text" id="location" name="location" value="{{ location or '' }}">
+  </div>
+  <div class="field">
+    <label for="name">Name</label><br>
+    <input type="text" id="name" name="name" value="{{ name or '' }}">
+  </div>
+  <div class="actions">
+    <input type="submit" value="Create Image">
+  </div>
+</form>
+
+<a href="/images">Back</a>
+
+{% endblock %}

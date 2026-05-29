@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>New Search</h1>
+
+{% if errors %}
+<div id="error_explanation">
+  <h2>{{ errors|length }} error(s) prohibited this search from being saved:</h2>
+  <ul>{% for msg in errors %}<li>{{ msg }}</li>{% endfor %}</ul>
+</div>
+{% endif %}
+
+<form method="post" action="/searches">
+  <div class="field">
+    <label for="md5hash">Hash</label><br>
+    <input type="text" id="md5hash" name="md5hash" value="">
+  </div>
+  <div class="field">
+    <label for="serial">Serial (JSON)</label><br>
+    <input type="text" id="serial" name="serial" value="">
+  </div>
+  <div class="actions">
+    <input type="submit" value="Create Search">
+  </div>
+</form>
+
+<a href="/searches">Back</a>
+
+{% endblock %}

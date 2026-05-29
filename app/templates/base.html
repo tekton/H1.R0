@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>H1.R0</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; }
+    #container { max-width: 1200px; margin: 0 auto; }
+    #top { padding: 8px 12px; background: #111; color: #eee; }
+    #top a { color: #ccc; text-decoration: none; margin-right: 16px; }
+    #top a:hover { color: #fff; }
+    #content { padding: 12px; }
+    #foot { padding: 8px 12px; color: #999; font-size: 0.8em; }
+    ul#quad { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    ul#quad li { display: inline-block; }
+    ul#single { list-style: none; padding: 0; margin: 0; }
+    ul#single li { margin-bottom: 4px; }
+    .browse_top_block_image { width: 200px; height: 133px; object-fit: cover; }
+    #top_block { margin-bottom: 16px; }
+    #tags_list { margin-top: 8px; }
+    .both { clear: both; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 6px 10px; text-align: left; }
+    th { background: #f5f5f5; }
+    .field { margin-bottom: 10px; }
+    .field label { display: block; font-weight: bold; margin-bottom: 3px; }
+    .actions { margin-top: 12px; }
+    #error_explanation { background: #f8d7da; border: 1px solid #f5c6cb; padding: 10px; margin-bottom: 12px; border-radius: 4px; }
+    #error_explanation ul { margin: 0; padding-left: 20px; }
+    #notice { background: #d4edda; border: 1px solid #c3e6cb; padding: 8px; margin-bottom: 12px; border-radius: 4px; }
+    .hash_data_top { background: #e9ecef; padding: 8px; margin-bottom: 12px; border-radius: 4px; }
+    .bottomCenter { text-align: center; margin-top: 12px; }
+    #img_info, #img_actions { margin-bottom: 12px; }
+    a { color: #0066cc; }
+    a:hover { color: #004499; }
+    input[type=text], input[type=number] { padding: 4px 8px; border: 1px solid #ccc; border-radius: 3px; width: 300px; }
+    input[type=submit] { padding: 6px 14px; background: #0066cc; color: white; border: none; border-radius: 3px; cursor: pointer; }
+    input[type=submit]:hover { background: #004499; }
+  </style>
+</head>
+<body class="body">
+  <div id="container">
+    <div id="top">
+      <span id="top_nav_home"><a href="/">H1.R0</a> [alpha]</span>
+      <span id="top_nav_images"><a href="/images">images</a> [slow]</span>
+      <span id="top_nav_exif"><a href="/exif_data">exif</a></span>
+    </div>
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+    <div id="foot"></div>
+  </div>
+</body>
+</html>

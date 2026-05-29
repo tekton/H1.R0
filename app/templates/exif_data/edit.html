@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Editing EXIF Datum</h1>
+
+{% if errors %}
+<div id="error_explanation">
+  <h2>{{ errors|length }} error(s) prohibited this datum from being saved:</h2>
+  <ul>{% for msg in errors %}<li>{{ msg }}</li>{% endfor %}</ul>
+</div>
+{% endif %}
+
+<form method="post" action="/exif_data/{{ datum.id }}/update">
+  <div class="field">
+    <label for="image_id">Image ID</label><br>
+    <input type="number" id="image_id" name="image_id" value="{{ datum.image_id or '' }}">
+  </div>
+  <div class="field">
+    <label for="tag">Tag</label><br>
+    <input type="text" id="tag" name="tag" value="{{ datum.tag or '' }}">
+  </div>
+  <div class="field">
+    <label for="value">Value</label><br>
+    <input type="text" id="value" name="value" value="{{ datum.value or '' }}">
+  </div>
+  <div class="actions">
+    <input type="submit" value="Update ExifDatum">
+  </div>
+</form>
+
+<a href="/exif_data/{{ datum.id }}">Show</a> |
+<a href="/exif_data">Back</a>
+
+{% endblock %}

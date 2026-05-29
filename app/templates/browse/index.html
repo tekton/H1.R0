@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="top_block">
+  <ul id="quad">
+    {% for image in images %}
+      <li>
+        <a href="/images/{{ image.id }}">
+          <img src="/assets/images/thumbnails/{{ image.location }}" class="browse_top_block_image" alt="{{ image.name }}">
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div id="tags_list">
+  <ul id="quad">
+    {% for item in exif_list %}
+      {% if item.tag not in excluded_tags %}
+        <li>
+          <a href="/filter/{{ item.hash }}">{{ item.tag }}:{{ item.value }} ({{ item.count }})</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <div class="both"></div>
+</div>
+
+{% endblock %}

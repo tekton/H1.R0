@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>EXIF Parse: {{ folder }}</h2>
+
+{% if errors %}
+  <div id="error_explanation">
+    <ul>{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>
+  </div>
+{% endif %}
+
+<p>Queued {{ queued|length }} file(s) for EXIF extraction:</p>
+<ul>
+  {% for f in queued %}
+    <li>{{ f }}</li>
+  {% endfor %}
+</ul>
+
+<a href="/">Home</a>
+
+{% endblock %}

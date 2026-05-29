@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if notice %}
+  <p id="notice">{{ notice }}</p>
+{% endif %}
+
+<p><b>Hash:</b> {{ search.md5hash }}</p>
+<p><b>Serial:</b> {{ search.serial }}</p>
+
+<a href="/searches/{{ search.id }}/edit">Edit</a> |
+<a href="/searches">Back</a>
+
+{% endblock %}

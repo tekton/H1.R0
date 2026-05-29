@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if notice %}
+  <p id="notice">{{ notice }}</p>
+{% endif %}
+
+<p><b>Parent (image_id):</b> {{ datum.image_id }}</p>
+<p><b>Tag:</b> {{ datum.tag }}</p>
+<p><b>Value:</b> {{ datum.value }}</p>
+
+<a href="/exif_data/{{ datum.id }}/edit">Edit</a> |
+<a href="/exif_data">Back</a>
+
+{% endblock %}

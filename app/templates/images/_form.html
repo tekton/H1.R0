@@ -1,0 +1,26 @@
+{% macro image_form(image, errors, action, submit_label) %}
+{% if errors %}
+<div id="error_explanation">
+  <h2>{{ errors|length }} error(s) prevented this image from being saved:</h2>
+  <ul>
+    {% for msg in errors %}
+      <li>{{ msg }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="{{ action }}">
+  <div class="field">
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location" value="{{ image.location if image else '' }}">
+  </div>
+  <div class="field">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" value="{{ image.name if image else '' }}">
+  </div>
+  <div class="actions">
+    <input type="submit" value="{{ submit_label }}">
+  </div>
+</form>
+{% endmacro %}

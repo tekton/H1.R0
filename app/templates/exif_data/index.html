@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if notice %}
+  <p id="notice">{{ notice }}</p>
+{% endif %}
+
+<div class="ui-state-highlight ui-corner-all">TODO: Implement search here</div>
+
+<div id="tags_list">
+  <ul id="single">
+    {% for item in exif_list %}
+      <li>
+        <a href="/filter/{{ item.hash }}">{{ item.tag }}:{{ item.value }} ({{ item.count }})</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="both"></div>
+</div>
+
+{% endblock %}

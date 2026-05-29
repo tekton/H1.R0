@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if notice %}
+  <p id="notice">{{ notice }}</p>
+{% endif %}
+
+<div class="hash_data_top">
+  |
+  {% for t in serial %}
+    {{ t.tag }} :: {{ t.value }} |
+  {% endfor %}
+</div>
+
+<div class="exif_table">
+
+  <ul id="quad">
+    {% for exif_datum in matched_exif %}
+      <li>
+        <a href="/images/{{ exif_datum.image_id }}">
+          <img src="/assets/images/thumbnails/{{ exif_datum.image.location }}" class="browse_top_block_image" alt="">
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <div id="tags_list">
+    <ul id="quad">
+      {% for item in refinement_rows %}
+        {% if item.tag not in excluded_tags %}
+          <li>
+            <a href="/filter/{{ item.hash }}">{{ item.tag }}:{{ item.value }} ({{ item.count }})</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <div class="both"></div>
+  </div>
+
+</div>
+
+{% endblock %}

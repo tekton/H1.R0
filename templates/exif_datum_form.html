@@ -1,0 +1,32 @@
+{{define "exif_datum_form"}}
+{{range .Errors}}
+<div id="error_explanation">
+  <p>{{.}}</p>
+</div>
+{{end}}
+
+<form action="{{.Action}}" method="POST">
+  {{if eq .Method "PUT"}}
+  <input type="hidden" name="_method" value="PUT">
+  {{end}}
+
+  <div class="field">
+    <label for="image_id">Image ID</label><br>
+    <input type="text" id="image_id" name="image_id" value="{{.ExifDatum.ImageID}}">
+  </div>
+
+  <div class="field">
+    <label for="tag">Tag</label><br>
+    <input type="text" id="tag" name="tag" value="{{.ExifDatum.Tag}}">
+  </div>
+
+  <div class="field">
+    <label for="value">Value</label><br>
+    <input type="text" id="value" name="value" value="{{.ExifDatum.Value}}">
+  </div>
+
+  <div class="actions">
+    <input type="submit" value="Save Exif Datum">
+  </div>
+</form>
+{{end}}

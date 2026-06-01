@@ -1,0 +1,10 @@
+{{template "layout" .}}
+
+{{define "content"}}
+<h1>Editing Exif Datum</h1>
+
+{{template "exif_datum_form" .}}
+
+<a href="/exif_data/{{.ExifDatum.ID}}">Show</a> |
+<a href="/exif_data">Back</a>
+{{end}}

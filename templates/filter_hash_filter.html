@@ -1,0 +1,31 @@
+{{template "layout" .}}
+
+{{define "content"}}
+{{if .Notice}}<p id="notice">{{.Notice}}</p>{{end}}
+
+<div class="hash_data_top">
+  |
+  {{range .SerialTags}}
+  {{.Tag}} :: {{.Value}} |
+  {{end}}
+</div>
+
+<div class="exif_table">
+  <ul id="quad">
+    {{range .Images}}
+    <li><a href="/images/{{.ID}}"><img src="/assets/images/thumbnails/{{.Location}}" class="browse_top_block_image"></a></li>
+    {{end}}
+  </ul>
+
+  <div id="tags_list">
+    <ul id="quad">
+      {{range .ExifCounts}}
+        {{if and (ne .Tag "date_time_digitized") (ne .Tag "user_comment") (ne .Tag "date_time_original") (ne .Tag "date_time") (ne .Tag "subject_area")}}
+        <li><a href="/filter/{{.Hash}}">{{.Tag}}:{{.Value}} ({{.Count}})</a></li>
+        {{end}}
+      {{end}}
+    </ul>
+    <div class="both"></div>
+  </div>
+</div>
+{{end}}

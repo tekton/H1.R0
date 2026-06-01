@@ -1,0 +1,22 @@
+{{define "layout"}}<!DOCTYPE html>
+<html>
+<head>
+  <title>H1.R0</title>
+  <link rel="stylesheet" href="/assets/images/../../../assets/stylesheets/application.css" media="all">
+</head>
+<body class="body">
+  <div id="container">
+    <div id="top">
+      <span id="top_nav_home"><a href="/">H1.R0</a> [alpha]</span>
+      <span id="top_nav_images"><a href="/images">images</a> [slow]</span>
+      <span id="top_nav_exif"><a href="/exif_data">exif</a></span>
+      <span id="top_nav_searches"><a href="/searches">searches</a></span>
+    </div>
+    <div id="content">
+      {{block "content" .}}{{end}}
+    </div>
+    <div id="foot"></div>
+  </div>
+</body>
+</html>
+{{end}}

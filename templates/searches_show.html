@@ -1,0 +1,11 @@
+{{template "layout" .}}
+
+{{define "content"}}
+{{if .Notice}}<p id="notice">{{.Notice}}</p>{{end}}
+
+<p><b>Hash:</b> {{.Search.Md5hash}}</p>
+<p><b>Serial:</b> {{.Search.Serial}}</p>
+
+<a href="/searches/{{.Search.ID}}/edit">Edit</a> |
+<a href="/searches">Back</a>
+{{end}}

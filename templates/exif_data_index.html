@@ -1,0 +1,15 @@
+{{template "layout" .}}
+
+{{define "content"}}
+{{if .Notice}}<p id="notice">{{.Notice}}</p>{{end}}
+<div class="ui-state-highlight ui-corner-all">TODO: Implement search here</div>
+
+<div id="tags_list">
+  <ul id="single">
+    {{range .ExifCounts}}
+    <li><a href="/filter/{{.Hash}}">{{.Tag}}:{{.Value}} ({{.Count}})</a></li>
+    {{end}}
+  </ul>
+  <div class="both"></div>
+</div>
+{{end}}

@@ -1,0 +1,33 @@
+{{template "layout" .}}
+
+{{define "content"}}
+<h1>Listing searches</h1>
+
+<table>
+  <tr>
+    <th>Hash</th>
+    <th>Serial</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  {{range .Searches}}
+  <tr>
+    <td>{{.Md5hash}}</td>
+    <td>{{.Serial}}</td>
+    <td><a href="/searches/{{.ID}}">Show</a></td>
+    <td><a href="/searches/{{.ID}}/edit">Edit</a></td>
+    <td>
+      <form action="/searches/{{.ID}}" method="POST" style="display:inline"
+            onsubmit="return confirm('Are you sure?')">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Destroy">
+      </form>
+    </td>
+  </tr>
+  {{end}}
+</table>
+
+<br>
+<a href="/searches/new">New Search</a>
+{{end}}

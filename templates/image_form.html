@@ -1,0 +1,27 @@
+{{define "image_form"}}
+{{range .Errors}}
+<div id="error_explanation">
+  <p>{{.}}</p>
+</div>
+{{end}}
+
+<form action="{{.Action}}" method="POST">
+  {{if eq .Method "PUT"}}
+  <input type="hidden" name="_method" value="PUT">
+  {{end}}
+
+  <div class="field">
+    <label for="location">Location</label><br>
+    <input type="text" id="location" name="location" value="{{.Image.Location}}">
+  </div>
+
+  <div class="field">
+    <label for="name">Name</label><br>
+    <input type="text" id="name" name="name" value="{{.Image.Name}}">
+  </div>
+
+  <div class="actions">
+    <input type="submit" value="Save Image">
+  </div>
+</form>
+{{end}}

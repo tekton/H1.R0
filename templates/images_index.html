@@ -1,0 +1,17 @@
+{{template "layout" .}}
+
+{{define "content"}}
+<h1>All Images</h1>
+
+{{if .Notice}}<p id="notice">{{.Notice}}</p>{{end}}
+
+<div id="top_block">
+  <ul id="quad">
+    {{range .Images}}
+    <li><a href="/images/{{.ID}}"><img src="/assets/images/thumbnails/{{.Location}}" class="browse_top_block_image"></a></li>
+    {{end}}
+  </ul>
+</div>
+
+<div class="bottomCenter"><a href="/images/new">New Image</a></div>
+{{end}}

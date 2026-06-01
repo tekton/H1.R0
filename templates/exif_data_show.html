@@ -1,0 +1,12 @@
+{{template "layout" .}}
+
+{{define "content"}}
+{{if .Notice}}<p id="notice">{{.Notice}}</p>{{end}}
+
+<p><b>Parent (image_id):</b> {{.ExifDatum.ImageID}}</p>
+<p><b>Tag:</b> {{.ExifDatum.Tag}}</p>
+<p><b>Value:</b> {{.ExifDatum.Value}}</p>
+
+<a href="/exif_data/{{.ExifDatum.ID}}/edit">Edit</a> |
+<a href="/exif_data">Back</a>
+{{end}}

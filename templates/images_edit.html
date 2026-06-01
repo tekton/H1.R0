@@ -1,0 +1,10 @@
+{{template "layout" .}}
+
+{{define "content"}}
+<h1>Editing image</h1>
+
+{{template "image_form" .}}
+
+<a href="/images/{{.Image.ID}}">Show</a> |
+<a href="/images">Back</a>
+{{end}}

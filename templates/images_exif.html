@@ -1,0 +1,16 @@
+{{template "layout" .}}
+
+{{define "content"}}
+<h1>EXIF Data for {{.Image.Location}}</h1>
+
+<table>
+  {{range .ExifData}}
+  <tr>
+    <td>{{.Tag}}</td>
+    <td>{{.Value}}</td>
+  </tr>
+  {{end}}
+</table>
+
+<a href="/images/{{.Image.ID}}">Back to Image</a>
+{{end}}

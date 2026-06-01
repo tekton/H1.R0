@@ -1,0 +1,33 @@
+{{template "layout" .}}
+
+{{define "content"}}
+{{if .Notice}}<p id="notice">{{.Notice}}</p>{{end}}
+
+<div id="img_info">
+  <p><b>Id:</b> {{.Image.ID}}</p>
+  <p><b>Location:</b> <a href="/assets/images/{{.Image.Location}}">{{.Image.Location}}</a></p>
+  <p><b>Name:</b> {{.Image.Name}}</p>
+</div>
+
+<div id="img_actions">
+  <a href="/images/{{.Image.ID}}/edit">Edit</a> |
+  <a href="/images">Back</a>
+</div>
+
+<p align="center">
+  <a href="/assets/images/{{.Image.Location}}">
+    <img src="/assets/images/thumbnails/{{.Image.Location}}">
+  </a>
+</p>
+
+<div id="show_exif_table">
+  <table class="show_table">
+    {{range .ExifData}}
+    <tr>
+      <td>{{.Tag}}</td>
+      <td>{{.Value}}</td>
+    </tr>
+    {{end}}
+  </table>
+</div>
+{{end}}

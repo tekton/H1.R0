@@ -1,0 +1,21 @@
+#extend("base"):
+#export("content"):
+<h1>New image</h1>
+
+<form action="/images" method="post">
+    <div class="field">
+        <label>Location</label><br>
+        <input type="text" name="location" value="">
+    </div>
+    <div class="field">
+        <label>Name</label><br>
+        <input type="text" name="name" value="">
+    </div>
+    <div class="actions">
+        <input type="submit" value="Create Image">
+    </div>
+</form>
+
+<a href="/images">Back</a>
+#endexport
+#endextend

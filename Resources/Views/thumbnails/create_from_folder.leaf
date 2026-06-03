@@ -1,0 +1,6 @@
+#extend("base"):
+#export("content"):
+<p>Thumbnails added to the queue...</p>
+<p>Dispatched #(dispatched) thumbnail job(s) for folder "#(folder)".</p>
+#endexport
+#endextend

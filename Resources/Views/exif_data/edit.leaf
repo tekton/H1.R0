@@ -1,0 +1,30 @@
+#extend("base"):
+#export("content"):
+<h1>Editing exif_datum</h1>
+
+<form action="/exif_data/#(datum.id)" method="post">
+    <div class="field">
+        <label>Image</label><br>
+        <input type="text" name="image_id" value="#(datum.image.id)">
+    </div>
+    <div class="field">
+        <label>Tag</label><br>
+        <input type="text" name="tag" value="#(datum.tag)">
+    </div>
+    <div class="field">
+        <label>Value</label><br>
+        <input type="text" name="value" value="#(datum.value)">
+    </div>
+    <div class="actions">
+        <input type="submit" value="Update Exif datum">
+    </div>
+</form>
+
+<a href="/exif_data/#(datum.id)">Show</a> |
+<a href="/exif_data">Back</a>
+
+<form action="/exif_data/#(datum.id)/delete" method="post" onsubmit="return confirm('Are you sure?');">
+    <input type="submit" value="Destroy">
+</form>
+#endexport
+#endextend

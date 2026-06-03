@@ -1,0 +1,15 @@
+#extend("base"):
+#export("content"):
+<h1>All Images</h1>
+
+<div id="top_block">
+    <ul id="quad">
+        #for(image in images):
+            <li><a href="/images/#(image.id)"><img src="/assets/images/thumbnails/#(image.location)" class="browse_top_block_image"></a></li>
+        #endfor
+    </ul>
+</div>
+
+<div class="bottomCenter"><a href="/images/new">New Image</a></div>
+#endexport
+#endextend

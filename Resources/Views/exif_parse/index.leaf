@@ -1,0 +1,6 @@
+#extend("base"):
+#export("content"):
+<p>Parse through a folder to add exif data to the exif database...</p>
+<p>Dispatched #(dispatched) EXIF job(s) for folder "#(folder)".</p>
+#endexport
+#endextend

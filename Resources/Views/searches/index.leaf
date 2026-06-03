@@ -1,0 +1,32 @@
+#extend("base"):
+#export("content"):
+<h1>Listing searches</h1>
+
+<table>
+    <tr>
+        <th>Hash</th>
+        <th>Serial</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    #for(search in searches):
+        <tr>
+            <td>#(search.md5hash)</td>
+            <td>#(search.serial)</td>
+            <td><a href="/searches/#(search.id)">Show</a></td>
+            <td><a href="/searches/#(search.id)/edit">Edit</a></td>
+            <td>
+                <form action="/searches/#(search.id)/delete" method="post" onsubmit="return confirm('Are you sure?');" style="display:inline">
+                    <input type="submit" value="Destroy">
+                </form>
+            </td>
+        </tr>
+    #endfor
+</table>
+
+<br>
+
+<a href="/searches/new">New Search</a>
+#endexport
+#endextend

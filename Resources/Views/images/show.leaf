@@ -1,0 +1,27 @@
+#extend("base"):
+#export("content"):
+<div id="img_info">
+    <p><b>Id:</b> #(image.id)</p>
+    <p><b>Location:</b> <a href="/assets/images/#(image.location)">#(image.location)</a></p>
+    <p><b>Name:</b> #(image.name)</p>
+</div>
+
+<div id="img_actions">
+    <a href="/images/#(image.id)/edit">Edit</a> |
+    <a href="/images">Back</a>
+</div>
+
+<p align="center"><a href="/assets/images/#(image.location)"><img src="/assets/images/thumbnails/#(image.location)"></a></p>
+
+<div id="show_exif_table">
+    <table class="show_table">
+        #for(datum in exif):
+            <tr>
+                <td>#(datum.tag)</td>
+                <td>#(datum.value)</td>
+            </tr>
+        #endfor
+    </table>
+</div>
+#endexport
+#endextend

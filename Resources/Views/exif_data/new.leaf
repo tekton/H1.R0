@@ -1,0 +1,25 @@
+#extend("base"):
+#export("content"):
+<h1>New exif_datum</h1>
+
+<form action="/exif_data" method="post">
+    <div class="field">
+        <label>Image</label><br>
+        <input type="text" name="image_id" value="">
+    </div>
+    <div class="field">
+        <label>Tag</label><br>
+        <input type="text" name="tag" value="">
+    </div>
+    <div class="field">
+        <label>Value</label><br>
+        <input type="text" name="value" value="">
+    </div>
+    <div class="actions">
+        <input type="submit" value="Create Exif datum">
+    </div>
+</form>
+
+<a href="/exif_data">Back</a>
+#endexport
+#endextend

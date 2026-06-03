@@ -1,0 +1,20 @@
+#extend("base"):
+#export("content"):
+<div id="top_block">
+    <ul id="quad">
+        #for(image in images):
+            <li><a href="/images/#(image.id)"><img src="/assets/images/thumbnails/#(image.location)" class="browse_top_block_image"></a></li>
+        #endfor
+    </ul>
+</div>
+
+<div id="tags_list">
+    <ul id="quad">
+        #for(exif_data in exif):
+            <li><a href="/filter/#(exif_data.q)">#(exif_data.tag):#(exif_data.value) (#(exif_data.count))</a></li>
+        #endfor
+    </ul>
+    <div class="both"></div>
+</div>
+#endexport
+#endextend

@@ -1,0 +1,21 @@
+#extend("base"):
+#export("content"):
+<h1>New search</h1>
+
+<form action="/searches" method="post">
+    <div class="field">
+        <label>Hash</label><br>
+        <input type="text" name="md5hash" value="">
+    </div>
+    <div class="field">
+        <label>Serial</label><br>
+        <input type="text" name="serial" value="">
+    </div>
+    <div class="actions">
+        <input type="submit" value="Create Search">
+    </div>
+</form>
+
+<a href="/searches">Back</a>
+#endexport
+#endextend

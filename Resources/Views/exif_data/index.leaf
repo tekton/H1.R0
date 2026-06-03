@@ -1,0 +1,13 @@
+#extend("base"):
+#export("content"):
+<div class="ui-state-highlight ui-corner-all"> TODO: Implement search here </div>
+<div id="tags_list">
+    <ul id="single">
+        #for(exif_data in exif):
+            <li><a href="/filter/#(exif_data.q)">#(exif_data.tag):#(exif_data.value) (#(exif_data.count))</a></li>
+        #endfor
+    </ul>
+    <div class="both"></div>
+</div>
+#endexport
+#endextend

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>H1.R0</title>
+    <meta charset="utf-8">
+    <style>
+        body.body { font-family: Helvetica, Arial, sans-serif; margin: 0; color: #222; }
+        #container { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+        #top { padding: 12px 0; border-bottom: 1px solid #ddd; }
+        #top span { margin-right: 16px; }
+        #content { padding: 16px 0; }
+        #foot { border-top: 1px solid #ddd; margin-top: 24px; padding: 12px 0; }
+        ul#quad { list-style: none; padding: 0; }
+        ul#quad li { display: inline-block; margin: 6px; vertical-align: top; }
+        ul#single { list-style: none; padding: 0; }
+        .browse_top_block_image { max-width: 200px; max-height: 133px; border: 1px solid #ccc; }
+        #notice { color: green; }
+        #error_explanation { color: #b00; }
+        table.show_table, table { border-collapse: collapse; }
+        table td, table th { border: 1px solid #ddd; padding: 4px 8px; }
+        .both { clear: both; }
+        .hash_data_top { padding: 8px 0; font-weight: bold; }
+        .field { margin: 8px 0; }
+        .actions { margin: 12px 0; }
+    </style>
+</head>
+<body class="body">
+    <div id="container">
+        <div id="top">
+            <span id="top_nav_home"><a href="/">H1.R0</a> [alpha]</span>
+            <span id="top_nav_images"><a href="/images">images</a> [slow]</span>
+            <span id="top_nav_exif"><a href="/exif_data">exif</a> [NYI]</span>
+        </div>
+        <div id="content">
+            #import("content")
+        </div>
+        <div id="foot"></div>
+    </div>
+</body>
+</html>

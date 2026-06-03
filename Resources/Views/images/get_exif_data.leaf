@@ -1,0 +1,12 @@
+#extend("base"):
+#export("content"):
+<table>
+    #for(datum in exif):
+        <tr>
+            <td>#(datum.tag)</td>
+            <td>#(datum.value)</td>
+        </tr>
+    #endfor
+</table>
+#endexport
+#endextend

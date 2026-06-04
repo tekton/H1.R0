@@ -4,20 +4,57 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile ~/.gitignore_global
 
-# Ignore bundler config
-/.bundle
-
-# Ignore the default SQLite database.
-/db/*.sqlite3
-
-# Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
-
+# === OS / editor ===
 .DS_Store
 .project
 .idea/*
-app/assets/images/test
+*.swp
+
+# === Ruby / Rails ===
+# Ignore bundler config
+/.bundle
+# Ignore the default SQLite database.
+/db/*.sqlite3
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
 *.log
+
+# === App image assets (user data) ===
+app/assets/images/test
 /app/assets/images/thumbnails/*
 /app/assets/images/*
+
+# === Python (plan/python-fastapi) ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# === Rust (plan/rust) ===
+/target/
+**/*.rs.bk
+
+# === Go (plan/go) ===
+# Test binary and coverage output
+*.test
+*.out
+# Build output / vendored deps
+/bin/
+vendor/
+
+# === Swift / Vapor (plan/swift) ===
+.build/
+.swiftpm/
+Packages/
+*.xcodeproj
+DerivedData/
